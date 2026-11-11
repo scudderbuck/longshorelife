@@ -482,12 +482,13 @@ html.l19new #splashVid{position:fixed;inset:0;z-index:2147483000;background:#0c1
 @supports(height:100dvh){html.l19new #splashVid{--spw:calc(100dvw - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px));--sph:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}}
 @font-face{font-family:Anton;src:url("fonts/anton-regular-subset.woff2") format("woff2"),url("fonts/anton-regular-subset.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
 html.l19new #splashVid.l19fade{opacity:0}
-html.l19new .splashLockup{position:relative;flex:0 0 auto;width:92%;max-width:100%;box-sizing:border-box;pointer-events:none;z-index:1;animation:splashTitleIn .45s ease-out both}
+html.l19new .splashLockup{position:relative;flex:0 0 auto;width:92%;max-width:100%;box-sizing:border-box;pointer-events:none;z-index:1;animation:splashTitleIn .45s ease-out both;container-type:inline-size}
 html.l19new .splashTitleSvg{width:100%;height:auto;display:block;overflow:visible}
 html.l19new .splashTitleText{font-family:Anton,Impact,"Arial Narrow",Haettenschweiler,sans-serif;font-weight:400;font-size:157px;letter-spacing:0;-webkit-font-smoothing:antialiased}
 html.l19new .splashTagText{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;font-size:47px;letter-spacing:8px;fill:#ff3b00;-webkit-font-smoothing:antialiased}
 @keyframes splashTitleIn{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){html.l19new .splashLockup{animation:none;opacity:1}}
+html.l19new .splashTribute{display:block;width:100%;box-sizing:border-box;margin:3px 0 0;padding:0 2%;text-align:center;font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;font-size:1.88cqw;line-height:1.15;letter-spacing:.06em;color:rgba(245,236,215,.7);white-space:nowrap;-webkit-font-smoothing:antialiased}
 html.l19new .splashVidBox{position:relative;display:block;line-height:0;flex:0 0 auto;z-index:0}
 html.l19new #splashVid video{width:var(--vidw);height:auto;max-width:none;max-height:none;object-fit:contain;display:block;background:#0c132d;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent);mask-composite:intersect}
 html.l19new body>*:not(#splash):not(#splash2):not(#splashVid):not(.sheet):not(#lv):not(#pgGh):not(#pgDt):not(#eqToast):not(#upd):not(#l19err){visibility:hidden;animation:spaNew 3.4s step-end forwards}
@@ -583,7 +584,7 @@ body.gopen{overflow:hidden}
 (function(){
   var neu=document.documentElement.classList.contains("l19new");
   if(neu){
-    document.write('<div id="splashVid" aria-hidden="true"><div class="splashLockup splashTitle"><svg class="splashTitleSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 248" preserveAspectRatio="xMidYMin meet" aria-hidden="true"><defs><path id="splashArc" d="M 40,210 A 1665,1665 0 0 1 960,210" fill="none"/><pattern id="splashGrunge" patternUnits="userSpaceOnUse" width="200" height="200"><image href="img/splash-grunge.png" width="200" height="200" preserveAspectRatio="none"/></pattern></defs><text class="splashTitleText" fill="url(#splashGrunge)"><textPath href="#splashArc" xlink:href="#splashArc" startOffset="50%" text-anchor="middle">LONGSHORE LIFE</textPath></text><g class="splashTag" fill="#ff3b00"><rect class="splashRules" x="148" y="200" width="62" height="5"/><rect class="splashRules" x="148" y="210" width="62" height="5"/><text class="splashTagText" x="500" y="227.5" text-anchor="middle">WORK THE WATERFRONT</text><rect class="splashRules" x="790" y="200" width="62" height="5"/><rect class="splashRules" x="790" y="210" width="62" height="5"/></g></svg></div><div class="splashVidBox"><video id="splashVideo" muted playsinline webkit-playsinline autoplay preload="auto" poster="img/bridges-turn-poster.jpg" width="480" height="640" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" title="Longshore Life"><source src="img/bridges-turn.mp4" type="video/mp4"><source src="img/bridges-turn.webm" type="video/webm"></video></div></div>');
+    document.write('<div id="splashVid" aria-hidden="true"><div class="splashLockup splashTitle"><svg class="splashTitleSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 248" preserveAspectRatio="xMidYMin meet" aria-hidden="true"><defs><path id="splashArc" d="M 40,210 A 1665,1665 0 0 1 960,210" fill="none"/><pattern id="splashGrunge" patternUnits="userSpaceOnUse" width="200" height="200"><image href="img/splash-grunge.png" width="200" height="200" preserveAspectRatio="none"/></pattern></defs><text class="splashTitleText" fill="url(#splashGrunge)"><textPath href="#splashArc" xlink:href="#splashArc" startOffset="50%" text-anchor="middle">LONGSHORE LIFE</textPath></text><g class="splashTag" fill="#ff3b00"><rect class="splashRules" x="148" y="200" width="62" height="5"/><rect class="splashRules" x="148" y="210" width="62" height="5"/><text class="splashTagText" x="500" y="227.5" text-anchor="middle">WORK THE WATERFRONT</text><rect class="splashRules" x="790" y="200" width="62" height="5"/><rect class="splashRules" x="790" y="210" width="62" height="5"/></g></svg><div class="splashTribute">In honor of Harry Bridges, 1901–1990</div></div><div class="splashVidBox"><video id="splashVideo" muted playsinline webkit-playsinline autoplay preload="auto" poster="img/bridges-turn-poster.jpg" width="480" height="640" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" title="Longshore Life"><source src="img/bridges-turn.mp4" type="video/mp4"><source src="img/bridges-turn.webm" type="video/webm"></video></div></div>');
     var v=document.getElementById("splashVideo"),r=false;
     try{r=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
     if(r&&v){try{v.pause();v.removeAttribute("autoplay");v.autoplay=false;}catch(e){}}
@@ -807,7 +808,7 @@ body.gopen{overflow:hidden}
    Before any version's migration code below touches storage, every app key (all localStorage keys starting "l19") is copied in memory;
    on a version change that copy is saved to a separate IndexedDB database ("l19safety", last 6 kept) so Backup > "Restore previous data" can bring it back.
    Nothing here ever deletes or renames an app key. */
-var L19_BOOT_VER="v140",L19_VER_KEY="l19.appVer",L19_SAFE_DB="l19safety",L19_SAFE_KEEP=6;
+var L19_BOOT_VER="v141",L19_VER_KEY="l19.appVer",L19_SAFE_DB="l19safety",L19_SAFE_KEEP=6;
 function l19Keys(){var o={};try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf("l19")===0&&k!==L19_VER_KEY)o[k]=localStorage.getItem(k);}}catch(e){}return o;}
 var l19Boot={prev:null,snap:null,err:null};
 try{if(typeof localStorage!=="undefined"){l19Boot.prev=localStorage.getItem(L19_VER_KEY);if(l19Boot.prev!==L19_BOOT_VER){var s0=l19Keys();if(Object.keys(s0).length)l19Boot.snap=s0;else{try{localStorage.setItem(L19_VER_KEY,L19_BOOT_VER);}catch(e){}}}}}catch(e){}
@@ -1457,7 +1458,7 @@ function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2
 /* ===== v30 features: pure logic (tested in node) ===== */
 const rd2=x=>Math.round(x*100)/100;
 /* ===== v35: travel/mileage, report, rates version, year summary, tour (pure, tested in node) ===== */
-const APP_VERSION="v140",CACHE_VERSION="l19hours-v140"; /* keep CACHE_VERSION equal to the cache name in sw.js */
+const APP_VERSION="v141",CACHE_VERSION="l19hours-v141"; /* keep CACHE_VERSION equal to the cache name in sw.js */
 const RATES_VERSION={id:"2026-07-04",label:"2026-27 PCL schedule"};
 /* v139: move saved data to https://longshorelife.app without putting a custom domain on this project repo.
    Pure helpers below are unit-tested in node. */
