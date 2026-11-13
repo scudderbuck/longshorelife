@@ -1,7 +1,7 @@
 {
  "source": "https://docs.nwseaportalliance.com/Vessel/Schedule.pdf",
  "timezone": "America/Los_Angeles",
- "updated": "2026-11-13T10:45:03-08:00",
+ "updated": "2026-11-13T13:45:03-08:00",
  "note": "Times are Pacific local. Schedule subject to change; T91 is cruise (no container calls). Outport rows with eta_time=false carry a date only (time shown as 00:00).",
  "outports": {
   "Aberdeen": {
@@ -61,7 +61,7 @@
    "terminal": "PCT",
    "agent": "BEN LINE",
    "eta": "2026-11-10T05:00",
-   "etd": "2026-11-14T14:00",
+   "etd": "2026-11-15T14:00",
    "port": "Tacoma",
    "imo": "9300441"
   },
@@ -164,7 +164,7 @@
    "terminal": "Blair",
    "agent": "Norton Lilly International",
    "eta": "2026-11-12T20:00",
-   "etd": "2026-11-13T16:30",
+   "etd": "2026-11-14T16:30",
    "port": "Tacoma",
    "vessel_type": "Car Carrier",
    "imo": "1063281"
@@ -209,17 +209,6 @@
    "imo": "9978676"
   },
   {
-   "vessel": "GLOVIS LEGEND",
-   "service": "",
-   "terminal": "EB1",
-   "agent": "Norton Lilly International",
-   "eta": "2026-11-13T17:30",
-   "etd": "2026-11-14T04:00",
-   "port": "Tacoma",
-   "vessel_type": "Car Carrier",
-   "imo": "1063281"
-  },
-  {
    "vessel": "OOCL OAKLAND",
    "service": "PNW1",
    "terminal": "T18",
@@ -228,6 +217,17 @@
    "etd": "2026-11-15T04:00",
    "port": "Seattle",
    "imo": "9367190"
+  },
+  {
+   "vessel": "GLOVIS LEGEND",
+   "service": "",
+   "terminal": "EB1",
+   "agent": "Norton Lilly International",
+   "eta": "2026-11-14T17:30",
+   "etd": "2026-11-15T04:00",
+   "port": "Tacoma",
+   "vessel_type": "Car Carrier",
+   "imo": "1063281"
   },
   {
    "vessel": "EVER SUMMIT",
