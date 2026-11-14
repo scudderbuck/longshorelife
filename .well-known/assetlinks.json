@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.longshorelife.twa",
+      "sha256_cert_fingerprints": [
+        "89:88:6B:4F:00:DF:FE:2A:D5:E6:75:8A:21:48:F7:44:0D:75:08:FF:14:8D:A4:F8:96:55:2F:50:50:31:B8:2E"
+      ]
+    }
+  }
+]
