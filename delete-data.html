@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#00214e"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#00214e">
+<title>Delete Your Data – Longshore Life™</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<style>
+@font-face{font-family:Anton;src:url("fonts/anton-regular-subset.woff2") format("woff2"),url("fonts/anton-regular-subset.woff") format("woff");font-weight:400;font-display:swap}
+:root{--bg:#f3f5f8;--card:#fff;--fg:#14202e;--mut:#5b6b7d;--pri:#00214e;--acc:#00214e;--bd:#d5dde6;--warn:#fff4d6}
+@media(prefers-color-scheme:dark){:root{--bg:#10151c;--card:#1a222c;--fg:#e8eef5;--mut:#9aabbd;--acc:#ffd23f;--bd:#4a5b6d;--warn:#3a3218}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--pri);color:#fff;padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;gap:12px}
+header img{width:52px;height:52px;border-radius:10px}
+header h1{margin:0;font:400 1.6rem/1.1 Anton,Impact,system-ui,sans-serif;letter-spacing:.5px}
+header small{display:block;font:600 .85rem system-ui,sans-serif;color:#ffd23f;letter-spacing:0}
+main{max-width:760px;margin:0 auto;padding:16px}
+section{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin:0 0 12px}
+h2{margin:0 0 6px;font-size:1.1rem;color:var(--acc)}
+p,ul{margin:6px 0}ul{padding-left:20px}li{margin:3px 0}
+.mut{color:var(--mut);font-size:.92rem}
+.ph{background:var(--warn);border:1px dashed #b8860b;border-radius:6px;padding:1px 6px;font-weight:700}
+a{color:inherit}
+code{background:var(--warn);border-radius:4px;padding:0 4px}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:8px 16px calc(24px + env(safe-area-inset-bottom))}
+</style>
+</head><body>
+<header><img src="icons/icon-192.png" alt="" width="52" height="52"><h1>Delete Your Data<small>Longshore Life™</small></h1></header>
+<main>
+<section>
+<p>This page explains how to delete the data you created in <b>Longshore Life™</b> (the web app at <a href="https://longshorelife.app/">longshorelife.app</a> and the Longshore Life Android app on Google Play). You don't need to install the app to ask for deletion.</p>
+<p><b>No account is needed for most of the app.</b> Hours, pay, notes and photos are stored only on your phone; we never receive them. Chat, shared boards and shared gear cards use an anonymous chat ID (no email or password) created the first time you open them.</p>
+</section>
+
+<section id="in-app">
+<h2>Option 1: delete in the app (instant)</h2>
+<ol>
+<li>Open Longshore Life and go to <b>Chat</b>.</li>
+<li>Tap <b>Delete my chat data</b> (under the chat rules, or in <b>Change name / code / My ID</b>).</li>
+<li>Read the list and tap <b>Delete my chat data</b>, then confirm.</li>
+</ol>
+<p>Do this on each phone or browser you used for chat; each has its own chat ID.</p>
+</section>
+
+<section id="email">
+<h2>Option 2: ask us by email</h2>
+<p>Email <a href="mailto:kingofthedocks.app@gmail.com">kingofthedocks.app@gmail.com</a> with the subject <b>Delete my data</b> and include:</p>
+<ul>
+<li>the display name you used in chat and the room (for example LOCAL19 or Coastwide),</li>
+<li>roughly when you posted, and if you can, your <b>My ID</b> (Chat → Change name / code / My ID → Copy).</li>
+</ul>
+<p>We'll confirm by email and delete the data within 30 days, usually much sooner. We may ask a question to make sure the request is really yours.</p>
+</section>
+
+<section id="what">
+<h2>What is deleted</h2>
+<ul>
+<li>All chat messages you posted, and pins of them.</li>
+<li>Reports you filed.</li>
+<li>Your display name on shared ship gear cards and diagrams (the ship information itself stays for other workers, without your name).</li>
+<li>Your anonymous chat ID (Firebase anonymous sign-in).</li>
+<li>On your phone (in-app option): your chat name, room codes, accepted chat rules and block list.</li>
+</ul>
+<p>Data on your phone (hours, pay, notes, photos, backups) is never on our servers. Delete it by clearing the app's data or uninstalling the app.</p>
+</section>
+
+<section id="kept">
+<h2>What may be kept</h2>
+<ul>
+<li><b>Mute and ban records</b> (the chat ID, the display name at the time, who applied it and when) are kept to prevent abuse and ban evasion, until a moderator lifts them.</li>
+<li>Reports <i>about</i> your messages filed by other people are kept until a moderator resolves them.</li>
+<li>Shared boards you edited stay for the room; they don&#39;t show your name.</li>
+<li>Visit counts (GoatCounter) are anonymous and can't be linked to you.</li>
+</ul>
+</section>
+
+<section>
+<p class="mut">See also the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Chat Rules</a>.</p>
+</section>
+</main>
+<footer>© 2026 Longshore Life™ · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="delete-data.html">Delete your data</a> · <a href="./">Back to the app</a></footer>
+</body></html>
