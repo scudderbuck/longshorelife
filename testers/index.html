@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#00214e"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#00214e">
+<title>Be one of the first 12 – Longshore Life™ on Google Play</title>
+<meta name="description" content="Help launch Longshore Life on Google Play. Android only. Free.">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+<style>
+@font-face{font-family:Anton;src:url("../fonts/anton-regular-subset.woff2") format("woff2"),url("../fonts/anton-regular-subset.woff") format("woff");font-weight:400;font-display:swap}
+:root{--navy:#00214e;--navy2:#06203e;--orange:#f26b0f;--orange2:#d95c08;--cream:#fcead2;--ink:#14202e;--err:#ffb4a8}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--navy);color:var(--cream);font:1rem/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:520px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.top img{width:44px;height:44px;border-radius:9px}
+.top span{font:400 1.15rem/1 Anton,Impact,sans-serif;letter-spacing:.5px}
+h1{margin:0;font:400 3.1rem/1.02 Anton,Impact,system-ui,sans-serif;color:var(--orange);letter-spacing:.5px}
+.sub{margin:8px 0 12px;font-size:1.1rem;font-weight:700}
+.body{margin:0 0 16px;color:#e9dcc6}
+form,.done{background:var(--cream);color:var(--ink);border-radius:14px;padding:16px;border-top:6px solid var(--orange)}
+label{display:block;font-weight:700;margin:12px 0 4px}label:first-child{margin-top:0}
+.opt{font-weight:400;color:#5b6b7d}
+input[type=text],input[type=email],select{width:100%;font:inherit;padding:11px 12px;border:2px solid #c9b9a0;border-radius:10px;background:#fff;color:var(--ink);min-height:46px}
+input:focus,select:focus{outline:none;border-color:var(--orange)}
+.hint{font-size:.85rem;color:#5b6b7d;margin:4px 0 0}
+.warn{font-size:.85rem;color:#8a3b00;margin:4px 0 0}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:700;margin-top:14px}
+.chk input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--orange);flex:0 0 auto}
+button{display:block;width:100%;margin-top:16px;min-height:54px;border:0;border-radius:12px;background:var(--orange);color:#fff;font:400 1.5rem/1 Anton,Impact,sans-serif;letter-spacing:1px;cursor:pointer}
+button:active{background:var(--orange2)}button:disabled{opacity:.6;cursor:wait}
+.msg{margin:10px 0 0;font-weight:700;color:#b3261e;min-height:1.2em}
+.done{display:none;text-align:center;font-size:1.15rem;font-weight:700}
+.done b{display:block;font:400 1.8rem/1.1 Anton,Impact,sans-serif;color:var(--orange);margin-bottom:6px;letter-spacing:.5px}
+footer{margin-top:16px;font-size:.85rem;color:#cdbfa8;text-align:center}
+footer a{color:inherit}
+</style>
+</head><body>
+<main>
+<div class="top"><img src="../icons/icon-192.png" alt="" width="44" height="44"><span>LONGSHORE LIFE™</span></div>
+<h1>BE ONE OF THE<br>FIRST 12</h1>
+<p class="sub">Help launch Longshore Life™ on Google Play. Android only. Free.</p>
+<p class="body">Google needs 12 testers to stick with the app for 14 days before it can go public. Sign up with the Gmail on your Android phone. We'll send you an invite link to install it from the Play Store. Keep it installed for 14 days and tell us what breaks.</p>
+
+<form id="f" novalidate>
+<label for="fn">First name</label>
+<input type="text" id="fn" name="first_name" autocomplete="given-name" maxlength="40" required>
+<label for="em">Gmail address used on your Play Store account</label>
+<input type="email" id="em" name="email" autocomplete="email" inputmode="email" maxlength="120" required>
+<p class="hint">Use the Google account that's signed in on your Android phone's Play Store.</p>
+<p class="warn" id="emw" hidden>That isn't a Gmail address. That's OK only if it's the Google account on your phone.</p>
+<label for="lc">Local</label>
+<select id="lc" name="local">
+<option value="">Choose…</option><option>19</option><option>23</option><option>52</option><option>98</option><option>Other</option>
+</select>
+<label for="ph">Phone model <span class="opt">(optional)</span></label>
+<input type="text" id="ph" name="phone_model" maxlength="60" placeholder="e.g. Pixel 8, Galaxy S23">
+<input type="hidden" id="utm" name="utm">
+<label class="chk"><input type="checkbox" id="ok" name="commit" required><span>I'll keep the app installed for 14 days</span></label>
+<button type="submit" id="go">SIGN ME UP</button>
+<p class="msg" id="msg" role="alert"></p>
+</form>
+<div class="done" id="done" role="status">You're on the list. Watch your Gmail for the Google Play invite.</div>
+
+<footer>Your email is used only to send the test invite. Never shared.<br><a href="../privacy.html">Privacy policy</a> · <a href="../">Open the app</a></footer>
+</main>
+<script>
+/* ===== CONFIG: the only thing to edit when the backend is ready ===== */
+const SIGNUP = {
+  backend: "google",            /* "google" (default) | "formspree" */
+  google: {
+    /* Google Form "formResponse" URL. Replace FORM_ID_PLACEHOLDER with the id from the form's share link (.../forms/d/e/<ID>/viewform). */
+    action: "https://docs.google.com/forms/d/e/FORM_ID_PLACEHOLDER/formResponse",
+    /* entry.N ids: get them from the form's "Get pre-filled link". Replace every 000000000 placeholder. */
+    fields: {
+      first_name:  "entry.000000001",
+      email:       "entry.000000002",
+      local:       "entry.000000003",
+      phone_model: "entry.000000004",
+      commit:      "entry.000000005",   /* checkbox question; value sent is the option text below */
+      utm:         "entry.000000006"
+    },
+    commitValue: "I'll keep the app installed for 14 days"
+  },
+  formspree: {                   /* inactive unless backend is "formspree" */
+    action: "https://formspree.io/f/FORMSPREE_ID_PLACEHOLDER"
+  }
+};
+/* ===================================================================== */
+
+const $ = id => document.getElementById(id);
+const configured = () => SIGNUP.backend === "formspree"
+  ? !/PLACEHOLDER/.test(SIGNUP.formspree.action)
+  : !/PLACEHOLDER/.test(SIGNUP.google.action) && !Object.values(SIGNUP.google.fields).some(v => /entry\.00000000\d$/.test(v));
+
+/* keep utm_* (and ref) from the link in a hidden field */
+(function(){
+  try{
+    const q = new URLSearchParams(location.search), out = [];
+    q.forEach((v,k) => { if (/^utm_|^ref$/i.test(k)) out.push(k + "=" + v.slice(0,80)); });
+    $("utm").value = out.join("&").slice(0,400);
+  }catch(e){}
+})();
+
+const ADAPTERS = {
+  /* Google Forms doesn't send CORS headers, so the POST is no-cors: we can't read the reply, a finished request counts as success. */
+  async google(d){
+    const g = SIGNUP.google, b = new URLSearchParams();
+    b.append(g.fields.first_name, d.first_name);
+    b.append(g.fields.email, d.email);
+    if (d.local) b.append(g.fields.local, d.local);
+    if (d.phone_model) b.append(g.fields.phone_model, d.phone_model);
+    if (d.commit) b.append(g.fields.commit, g.commitValue);
+    if (d.utm) b.append(g.fields.utm, d.utm);
+    await fetch(g.action, { method: "POST", mode: "no-cors", body: b });
+    return true;
+  },
+  async formspree(d){
+    const r = await fetch(SIGNUP.formspree.action, {
+      method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ ...d, commit: d.commit ? "yes" : "no", _subject: "Longshore Life tester sign-up" })
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return true;
+  }
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+$("em").addEventListener("input", () => {
+  const v = $("em").value.trim().toLowerCase();
+  $("emw").hidden = !(EMAIL_RE.test(v) && !/@(gmail|googlemail)\.com$/.test(v));
+});
+
+$("f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const m = $("msg"); m.textContent = "";
+  const d = {
+    first_name: $("fn").value.trim(), email: $("em").value.trim(), local: $("lc").value,
+    phone_model: $("ph").value.trim(), commit: $("ok").checked, utm: $("utm").value
+  };
+  if (!d.first_name) { m.textContent = "Please enter your first name."; $("fn").focus(); return; }
+  if (!EMAIL_RE.test(d.email)) { m.textContent = "Please enter a valid Gmail address."; $("em").focus(); return; }
+  if (!d.commit) { m.textContent = "Please check the 14-day box."; $("ok").focus(); return; }
+  if (!configured()) { m.textContent = "Sign-up isn't open yet. Please check back soon."; return; }
+  const btn = $("go"); btn.disabled = true; btn.textContent = "SENDING…";
+  try {
+    await ADAPTERS[SIGNUP.backend](d);
+    $("f").style.display = "none"; $("done").style.display = "block";
+  } catch (err) {
+    m.textContent = "Couldn't send. Check your signal and try again.";
+  } finally { btn.disabled = false; btn.textContent = "SIGN ME UP"; }
+});
+</script>
+</body></html>
