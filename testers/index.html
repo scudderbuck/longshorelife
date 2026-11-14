@@ -69,18 +69,18 @@ footer a{color:inherit}
 const SIGNUP = {
   backend: "google",            /* "google" (default) | "formspree" */
   google: {
-    /* Google Form "formResponse" URL. Replace FORM_ID_PLACEHOLDER with the id from the form's share link (.../forms/d/e/<ID>/viewform). */
-    action: "https://docs.google.com/forms/d/e/FORM_ID_PLACEHOLDER/formResponse",
-    /* entry.N ids: get them from the form's "Get pre-filled link". Replace every 000000000 placeholder. */
+    /* Google Form "formResponse" URL (Longshore Life – Google Play testers). */
+    action: "https://docs.google.com/forms/d/e/1FAIpQLSeFJ7ASn2xLQo_xNNsUHAz7j5dpLMhMSpcqm72tk82WFagH0g/formResponse",
+    /* entry.N ids from the form's pre-filled link. */
     fields: {
-      first_name:  "entry.000000001",
-      email:       "entry.000000002",
-      local:       "entry.000000003",
-      phone_model: "entry.000000004",
-      commit:      "entry.000000005",   /* checkbox question; value sent is the option text below */
-      utm:         "entry.000000006"
+      first_name:  "entry.380753278",
+      email:       "entry.152571628",
+      local:       "entry.949009588",
+      phone_model: "entry.1443151683",
+      commit:      "entry.2112843662",  /* 14-day checkbox; value sent is commitValue */
+      utm:         "entry.441172565"
     },
-    commitValue: "I'll keep the app installed for 14 days"
+    commitValue: "Yes"
   },
   formspree: {                   /* inactive unless backend is "formspree" */
     action: "https://formspree.io/f/FORMSPREE_ID_PLACEHOLDER"
@@ -89,17 +89,15 @@ const SIGNUP = {
 /* ===================================================================== */
 
 const $ = id => document.getElementById(id);
-const configured = () => SIGNUP.backend === "formspree"
-  ? !/PLACEHOLDER/.test(SIGNUP.formspree.action)
-  : !/PLACEHOLDER/.test(SIGNUP.google.action) && !Object.values(SIGNUP.google.fields).some(v => /entry\.00000000\d$/.test(v));
-
-/* keep utm_* (and ref) from the link in a hidden field */
+/* Source for the hidden field: "utm_source/utm_campaign" (e.g. instagram/reel_testers), just the source, or "direct" */
 (function(){
+  let v = "direct";
   try{
-    const q = new URLSearchParams(location.search), out = [];
-    q.forEach((v,k) => { if (/^utm_|^ref$/i.test(k)) out.push(k + "=" + v.slice(0,80)); });
-    $("utm").value = out.join("&").slice(0,400);
+    const q = new URLSearchParams(location.search), clean = x => String(x || "").trim().replace(/[^\w.\-]/g, "_").slice(0, 60);
+    const src = clean(q.get("utm_source") || q.get("ref")), camp = clean(q.get("utm_campaign"));
+    if (src) v = camp ? src + "/" + camp : src;
   }catch(e){}
+  $("utm").value = v;
 })();
 
 const ADAPTERS = {
@@ -141,7 +139,6 @@ $("f").addEventListener("submit", async e => {
   if (!d.first_name) { m.textContent = "Please enter your first name."; $("fn").focus(); return; }
   if (!EMAIL_RE.test(d.email)) { m.textContent = "Please enter a valid Gmail address."; $("em").focus(); return; }
   if (!d.commit) { m.textContent = "Please check the 14-day box."; $("ok").focus(); return; }
-  if (!configured()) { m.textContent = "Sign-up isn't open yet. Please check back soon."; return; }
   const btn = $("go"); btn.disabled = true; btn.textContent = "SENDING…";
   try {
     await ADAPTERS[SIGNUP.backend](d);
