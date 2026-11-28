@@ -447,6 +447,10 @@
   "checked": "2026-11-07",
   "imo": "9756731"
  },
+ "MSC CLELIA X": {
+  "checked": "2026-11-28",
+  "imo": "1031214"
+ },
  "MSC DARLENE": {
   "checked": "2026-11-05",
   "imo": "9930959"
@@ -498,6 +502,10 @@
  "MSC PISA": {
   "checked": "2026-11-14",
   "imo": "9978999"
+ },
+ "MSC ROMA": {
+  "checked": "2026-11-28",
+  "imo": "9304447"
  },
  "MSC SABRINA": {
   "checked": "2026-10-16",
@@ -791,6 +799,10 @@
   "checked": "2026-10-19",
   "imo": "9198264"
  },
+ "YM THRONE": {
+  "checked": "2026-11-28",
+  "imo": "9792694"
+ },
  "YM TOPMOST": {
   "checked": "2026-10-31",
   "imo": "9878515"
@@ -806,5 +818,9 @@
  "YM WEALTH": {
   "checked": "2026-10-19",
   "imo": "9278088"
+ },
+ "YM WELLHEAD": {
+  "checked": "2026-11-28",
+  "imo": "9684665"
  }
 }
